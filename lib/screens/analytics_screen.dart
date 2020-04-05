@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_banking_neomorphism_app/components/analytics_view.dart';
+import 'package:mobile_banking_neomorphism_app/components/expenses_view.dart';
 import 'package:mobile_banking_neomorphism_app/utilities/decorations.dart';
 
 class AnalyticsScreen extends StatelessWidget {
@@ -15,13 +16,9 @@ class AnalyticsScreen extends StatelessWidget {
               child: _buildAppNavBar(context),
             ),
             Expanded(
-              flex: 2,
               child: AnalyticsView(),
             ),
-            Expanded(
-              flex: 1,
-              child: Container(color: Colors.orange,),
-            ),
+            ExpensesView(),
           ],
         ),
       ),
@@ -30,7 +27,12 @@ class AnalyticsScreen extends StatelessWidget {
 
   Row _buildAppNavBar(BuildContext context) => Row(
         children: <Widget>[
-          _buildAppBarButton(context, Icons.arrow_back_ios),
+          InkWell(
+            child: _buildAppBarButton(context, Icons.arrow_back_ios),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
           Spacer(),
           _buildAppBarButton(context, Icons.menu),
         ],

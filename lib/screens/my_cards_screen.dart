@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_banking_neomorphism_app/components/my_cards_view.dart';
 import 'package:mobile_banking_neomorphism_app/components/recent_transaction_view.dart';
+import 'package:mobile_banking_neomorphism_app/screens/analytics_screen.dart';
 import 'package:mobile_banking_neomorphism_app/utilities/decorations.dart';
 
 class MyCardsScreen extends StatelessWidget {
@@ -17,7 +18,12 @@ class MyCardsScreen extends StatelessWidget {
             ),
             Expanded(
               flex: 1,
-              child: MyCardsView(),
+              child: InkWell(
+                child: MyCardsView(),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => AnalyticsScreen()));
+                },
+              ),
             ),
             Expanded(
               flex: 1,
